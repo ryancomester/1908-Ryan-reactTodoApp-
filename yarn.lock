@@ -1980,21 +1980,6 @@ arr-union@^3.1.0:
   resolved "https://registry.npmjs.org/arr-union/-/arr-union-3.1.0.tgz"
   integrity sha512-sKpyeERZ02v1FeCZT8lrfJq5u6goHCtpTAzPwJYe7c8SPFOboNjNg1vz2L4VTn9T4PQxEx13TbXLmYUcS6Ug7Q==
 
-array-filter@~0.0.0:
-  version "0.0.1"
-  resolved "https://registry.npmjs.org/array-filter/-/array-filter-0.0.1.tgz"
-  integrity sha512-VW0FpCIhjZdarWjIz8Vpva7U95fl2Jn+b+mmFFMLn8PIVscOQcAgEznwUzTEuUHuqZqIxwzRlcaN/urTFFQoiw==
-
-array-map@~0.0.0:
-  version "0.0.1"
-  resolved "https://registry.npmjs.org/array-map/-/array-map-0.0.1.tgz"
-  integrity sha512-sxHIeJTGEsRC8/hYkZzdJNNPZ41EXHVys7pqMw1iwE/Kx8/hto0UbDuGQsSJ0ujPovj9qUZl6EOY/EiZ2g3d9Q==
-
-array-reduce@~0.0.0:
-  version "0.0.0"
-  resolved "https://registry.npmjs.org/array-reduce/-/array-reduce-0.0.0.tgz"
-  integrity sha512-8jR+StqaC636u7h3ye1co3lQRefgVVUQUhuAmRbDqIMeR2yuXzRvkCNQiQ5J/wbREmoBLNtp13dhaaVpZQDRUw==
-
 array-union@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/array-union/-/array-union-2.1.0.tgz#b798420adbeb1de828d84acd8a2e23d3efe85e8d"
@@ -4119,11 +4104,6 @@ jsonfile@^6.0.1:
   optionalDependencies:
     graceful-fs "^4.1.6"
 
-jsonify@~0.0.0:
-  version "0.0.1"
-  resolved "https://registry.npmjs.org/jsonify/-/jsonify-0.0.1.tgz"
-  integrity sha512-2/Ki0GcmuqSrgFyelQq9M05y7PS0mEwuIzrf3f1fPqkVDVRvZrPZtVSMHxdgo8Aq0sxAOb/cr2aqqA3LeWHVPg==
-
 kind-of@^3.0.2, kind-of@^3.0.3, kind-of@^3.2.0:
   version "3.2.2"
   resolved "https://registry.npmjs.org/kind-of/-/kind-of-3.2.2.tgz"
@@ -5817,17 +5797,7 @@ shebang-regex@^3.0.0:
   resolved "https://registry.yarnpkg.com/shebang-regex/-/shebang-regex-3.0.0.tgz#ae16f1644d873ecad843b0307b143362d4c42172"
   integrity sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==
 
-shell-quote@^1.6.1:
-  version "1.6.1"
-  resolved "https://registry.npmjs.org/shell-quote/-/shell-quote-1.6.1.tgz"
-  integrity sha512-V0iQEZ/uoem3NmD91rD8XiuozJnq9/ZJnbHVXHnWqP1ucAhS3yJ7sLIIzEi57wFFcK3oi3kFUC46uSyWr35mxg==
-  dependencies:
-    array-filter "~0.0.0"
-    array-map "~0.0.0"
-    array-reduce "~0.0.0"
-    jsonify "~0.0.0"
-
-shell-quote@^1.7.3:
+shell-quote@^1.6.1, shell-quote@^1.7.3:
   version "1.7.4"
   resolved "https://registry.yarnpkg.com/shell-quote/-/shell-quote-1.7.4.tgz#33fe15dee71ab2a81fcbd3a52106c5cfb9fb75d8"
   integrity sha512-8o/QEhSSRb1a5i7TFR0iM4G16Z0vYB2OQVs4G3aAFXjn3T6yEx8AZxy1PgDF7I00LZHYA3WxaSYIf5e5sAX8Rw==
