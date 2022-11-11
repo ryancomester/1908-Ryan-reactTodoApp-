@@ -1,26 +1,24 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
+import { StyleSheet, Text, View, Button, TextInput, KeyboardAvoidingView, Platform} from 'react-native';
 
 //component for tasks
-const Task = ({taskName, todoState}) => {
+const Task = ({taskName, todoState, clearFunction, stateKey}) => {
   if(todoState === false){
     return(
         <View style={styles.card}>
           <View style={styles.cardLeft}>
-            <Text style={styles.cardText}>{taskName}</Text>
+            <Text style={styles.cardText}>{taskName}  {stateKey}</Text>
           </View>
           <Button
               title="Completed"
-              onPress={() => console.log("coco")}
+              onPress={() => clearFunction(stateKey)}
               style={styles.square}
           />
         </View>
     )
   }
-
 }
-
 
 export default function App() {
   //Array which the data is stored
@@ -38,18 +36,18 @@ export default function App() {
       //date
       const unixTime = Date.now();
       const date = new Date(unixTime * 1000)
-      /*todo structure*/
+
+      /*todo object*/
       const newTodo = {
         title: inputVal,
         createdDate: date.toUTCString(),
-        done:false,
-        key: Math.floor(Math.random() * 100)
+        done:false
       };
 
       const todo = todos.concat(newTodo);
 
       setTodos(todo);
-      setInputVal('');
+      setInputVal(null);
     }
   }
 
@@ -58,32 +56,42 @@ export default function App() {
   }
 
   //completing a task
-  function completeingTodo(todo){
-    todo.done
+  function completingTodo(todo){
+    console.log(todo);
   }
+
   return (
     <View style={styles.container}>
       <View style={styles.contentPadding}>
         <Text style={styles.title}>Todo</Text>
         <View style={styles.cardColumn}>
-          {todos.map((singleTodo) => (
+          {todos.map((singleTodo, key) => (
               <View>
-                <Task taskName={singleTodo.title} todoState={singleTodo.done}/>
+                <Task taskName={singleTodo.title} todoState={singleTodo.done} stateKey={key}/>
               </View>
           ))}
         </View>
-        <TextInput
-            style={styles.input}
-            onSubmitEditing={addTodo}
-            onChangeText = {ChangeText}
-            placeholder="Add Todo"
-            autoCapitalize="sentences"
-            returnKeyType="done"
-            blurOnSubmit={true}
-            value={setInputVal}
-            multiline = {true}
-            maxLength={30}
-        />
+
+        </View>
+        <View style={styles.textContainer}>
+
+          <KeyboardAvoidingView
+              behavior={Platform.OS === "ios" ? "padding" : "height"}
+              style={styles.writeTaskWrapper}
+          >
+            <TextInput
+                style={styles.input}
+                onSubmitEditing={addTodo}
+                onChangeText = {ChangeText}
+                placeholder="Add Todo"
+                autoCapitalize="sentences"
+                returnKeyType="done"
+                blurOnSubmit={true}
+                value={setInputVal}
+                multiline = {true}
+                maxLength={30}
+            />
+          </KeyboardAvoidingView>
       </View>
     </View>
   );
@@ -132,7 +140,7 @@ const styles = StyleSheet.create({
     // marginRight: 15,
   },
   cardText: {
-    maxWidth: '80%',
+    maxWidth: '100%',
   },
   circular: {
     width: 12,
@@ -141,4 +149,16 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderRadius: 5,
   },
+  textContainer:{
+    position:"absolute",
+    bottom:50
+  },
+  writeTaskWrapper: {
+    position: 'absolute',
+    bottom: 60,
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center'
+  }
 });
